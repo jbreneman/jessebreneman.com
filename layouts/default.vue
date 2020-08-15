@@ -1,5 +1,6 @@
 <template>
-	<div>
+	<div class="layout">
+		<app-nav />
 		<Nuxt />
 	</div>
 </template>
@@ -8,6 +9,6 @@
 $block: '.layout';
 
 #{$block} {
-	
+	padding-left: var(--app-nav-width);
 }
 </style>
