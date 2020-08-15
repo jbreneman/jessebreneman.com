@@ -11,13 +11,17 @@ body {
     font-family: 'Jost', sans-serif;    
 }
 
+.visually-hidden {
+    @include visually-hidden;
+}
+
 ::selection {
     background-color: var(--primary);
     color: white;
 }
 
 h1, h2, h3, h4, h5, h6, a {
-    &::selection {
+    &::selection, ::selection {
         background-color: var(--secondary);
     }
 }

@@ -8,8 +8,14 @@
 				class="app-nav__logo"
 				to="/"
 			>
-				J
+				<span aria-hidden="true">
+					J
+				</span>
+				<span class="visually-hidden">
+					Go to homepage
+				</span>
 			</nuxt-link>
+			<app-nav-animation class="app-nav__background" />
 		</nav>
 	</transition>
 </template>
@@ -59,6 +65,7 @@ $block: '.app-nav';
 		font-size: 3rem;
 		text-decoration: none;
 		transition: color .36s cubic-bezier(0.215, 0.61, 0.355, 1);
+		user-select: none;
 
 		&::after {
 			content: '';
@@ -82,6 +89,13 @@ $block: '.app-nav';
 				transform: translate3d(0, 0, 0);
 			}
 		}
+	}
+
+	&__background {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
 	}
 }
 </style>
