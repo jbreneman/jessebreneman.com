@@ -1,6 +1,7 @@
 <template>
 	<div class="index">
 		<index-hero class="index__hero" />
+		<index-projects class="index__projects" />
 	</div>
 </template>
 

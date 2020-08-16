@@ -29,6 +29,7 @@ $block: '.nav-anim';
 
 @keyframes fadeup {
 	0% {
+		opacity: 1;
 		transform: translate3d(0, 0, 0);
 	}
 	100% {
@@ -48,8 +49,8 @@ $block: '.nav-anim';
 		width: .5rem;
 		height: .5rem;
 		background-color: rgba(white, .5);
-		mix-blend-mode: screen;
 		border-radius: 50%;
+		opacity: 0;
 		animation: 6s fadeup linear infinite;
 
 		@for $i from 1 through 31 {
