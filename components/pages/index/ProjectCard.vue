@@ -167,4 +167,17 @@ $block: '.project-card';
 		margin-bottom: -3px;
 	}
 }
+
+@media screen and (max-width: 540px) {
+	#{$block} {
+		&__image {
+			clip-path: polygon(0% 80%, 100% 70%, 100% 100%, 0% 100%);
+		}
+
+		&__content {
+			width: 100%;
+			margin-bottom: calc(var(--spacing-flex) * 4);
+		}
+	}
+}
 </style>

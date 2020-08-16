@@ -170,4 +170,22 @@ $block: '.index-projects';
 		}
 	}
 }
+
+@media screen and (max-width: 820px) {
+	#{$block} {
+		&__item {
+			grid-column: 1 / span 3;
+
+			&:nth-of-type(even) {
+				grid-column: 1 / span 3;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	#{$block} {
+		padding: var(--spacing-flex);
+	}
+}
 </style>
