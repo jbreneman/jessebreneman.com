@@ -46,6 +46,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/observe-visibility.js'
   ],
   /*
   ** Auto import components

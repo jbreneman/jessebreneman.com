@@ -41,7 +41,7 @@ export default {
 		image: {
 			type: String,
 			required: true,
-			validator: (val) => ['.jpg', '.png', '.gif', '.webm'].includes(val)
+			validator: (val) => ['.jpg', '.png', '.gif', '.webm'].some((ext) => val.includes(ext))
 		},
 		description: {
 			type: String,

@@ -2,6 +2,7 @@
 	<div class="layout">
 		<app-nav />
 		<Nuxt />
+		<app-footer />
 	</div>
 </template>
 

@@ -1,11 +1,22 @@
 <template>
-	<div class="index-projects">
+	<div
+		class="index-projects"
+		:class="{ visible }"
+		v-observe-visibility="{
+			callback: visibilityChanged,
+			once: true,
+			intersection: {
+				rootMargin: '0px -100px 0px 0px'
+			},
+		}"
+	> 
 		<div class="index-projects__section">
 			<h2 class="index-projects__heading">
 				Projects
 			</h2>
 			<div class="index-projects__grid">
 				<project-card
+					class="index-projects__item"
 					:key="project.name"
 					v-bind="project"
 					v-for="project in projects"
@@ -51,27 +62,20 @@ const projects = [
 export default {
 	data() {
 		return {
-			mounted: false,
+			visible: false,
 			projects
 		};
 	},
-	mounted() {
-		this.mounted = true;
+	methods: {
+		visibilityChanged() {
+			this.visible = true;
+		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
 $block: '.index-projects';
-
-.slide-in-enter {
-	transform: translate3d(0, 8px, 0);
-	opacity: 0;
-}
-
-.slide-in-enter-active {
-	transition: transform .36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .48s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
 
 @keyframes pulse {
 	0% {
@@ -101,6 +105,21 @@ $block: '.index-projects';
 		width: 100%;
 		height: 8rem;
 		background: linear-gradient(rgba(black, .02), transparent);
+	}
+
+	&.visible {
+		#{$block} {
+			&__heading, &__item {
+				transform: translate3d(0, 0, 0);
+				opacity: 1;
+			}
+		}
+	}
+
+	&__heading, &__item {
+		transform: translate3d(0, 8px, 0);
+		opacity: 0;
+		transition: transform .36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .48s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
 	&__section {
@@ -135,13 +154,19 @@ $block: '.index-projects';
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: calc(var(--spacing-flex) / 2);
+	}
 
-		> * {
-			grid-column: 1 / span 2;
+	&__item {
+		grid-column: 1 / span 2;
+
+		&:nth-of-type(even) {
+			grid-column: 2 / span 2;
 		}
 
-		> *:nth-of-type(even) {
-			grid-column: 2 / span 2;
+		@for $i from 1 through 20 {
+			&:nth-of-type(#{$i}) {
+				transition-delay: #{.08 * $i}s;
+			}
 		}
 	}
 }

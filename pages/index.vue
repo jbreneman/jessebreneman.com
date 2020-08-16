@@ -16,9 +16,5 @@ $block: '.index';
 
 #{$block} {
 	height: 100%;
-
-	&__hero {
-		
-	}
 }
 </style>
