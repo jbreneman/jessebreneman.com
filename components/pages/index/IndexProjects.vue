@@ -37,7 +37,8 @@ const projects = [
 	{
 		name: 'My virtual kitchen',
 		image: 'myvirtualkitchen.png',
-		description: 'Coming soon! Web app for easily saving recipes and eventually building your own cookbooks.'
+		description: 'Web app for easily saving recipes and building your own cookbooks.',
+		link: 'https://myvirtual.kitchen'
 	},
 	{
 		name: 'Background gradient builder',
