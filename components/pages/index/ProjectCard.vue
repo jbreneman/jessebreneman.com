@@ -110,7 +110,7 @@ $block: '.project-card';
 		position: relative;
 		z-index: 0;
 		width: 65%;
-		height: 100%;
+		height: auto;
 		margin: .5rem;
 		padding: calc(var(--spacing-flex) / 2);
 
