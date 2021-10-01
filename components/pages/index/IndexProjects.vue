@@ -55,8 +55,8 @@ const projects = [
 	{
 		name: 'Suggestmycolors',
 		image: 'suggestmycolors.png',
-		description: 'A very old project that\'s been through multiple iterations. Takes a color and applies a bunch of math to generate more colors.',
-		link: 'http://projects.jessebreneman.com/suggest/'
+		description: `A project I keep rewriting to learn new stuff. Current iteration was written to learn React + Typescript.`,
+		link: 'https://suggest.breneman.dev'
 	},
 ];
 
