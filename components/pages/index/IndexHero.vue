@@ -28,7 +28,7 @@
 			</p>
 			<p class="index-hero__paragraph">
 				<!-- eslint-disable-next-line -->
-				I'm based in Columbus, Ohio and currently building the next big post-purchase platform for Shopify at <a href="https://loop.love" class="index-hero__link">Loop Returns</a>.
+				I'm based in Columbus, Ohio and currently building design systems at <a href="https://blend.com" class="index-hero__link">Blend</a>.
 			</p>
 		</div>
 	</div>
