@@ -17,12 +17,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$block: '.app-footer';
+$block: ".app-footer";
 
 #{$block} {
 	padding: var(--spacing-flex);
-	background-color: black;
-	color: white;
+	background-color: var(--grey-900);
+	color: var(--grey-0);
 	text-align: center;
 
 	&__copyright {

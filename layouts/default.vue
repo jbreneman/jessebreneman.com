@@ -13,7 +13,7 @@
 	background: linear-gradient(
 		to right,
 		var(--grey-100) var(--app-nav-width),
-		white var(--app-nav-width)
+		var(--grey-0) var(--app-nav-width)
 	);
 }
 
