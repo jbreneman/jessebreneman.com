@@ -3,7 +3,7 @@
 		class="index-hero"
 		:class="{ visible }"
 		v-observe-visibility="{
-			callback: visibilityChanged,
+			callback: (isVisible) => isVisible && visibilityChanged(),
 			once: true,
 			intersection: {
 				rootMargin: '0px -100px 0px 0px'
@@ -52,25 +52,44 @@ export default {
 <style lang="scss" scoped>
 $block: '.index-hero';
 
+@keyframes fadein {
+	0% {
+		text-shadow: 0 0 0 var(--fade-color, var(--primary));
+		opacity: 0;
+		transform: translate3d(-.5rem, 0, 0);
+		color: transparent;
+	}
+	75% {
+		text-shadow: 0 0 0 var(--fade-color, var(--secondary));
+		color: transparent;
+	}
+	75.1% {
+		text-shadow: 0 0 0 var(--fade-color, var(--secondary));
+	}
+	100% {
+		opacity: 1;
+		color: inherit;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
 #{$block} {
 	padding: calc(var(--spacing-flex) * 2);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	--delay: .0s;
 
 	&.visible {
 		#{$block} {
 			&__eyebrow, &__heading-text, &__subheading, &__paragraph {
-				transform: translate3d(0, 0, 0);
-				opacity: 1;
+				animation: fadein .75s ease forwards var(--delay, 0);
 			}
 		}
 	}
 
 	&__eyebrow, &__heading-text, &__subheading, &__paragraph {
-		transform: translate3d(0, 8px, 0);
 		opacity: 0;
-		transition: transform .36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .48s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
 	&__section {
@@ -92,13 +111,13 @@ $block: '.index-hero';
 	}
 
 	&__heading-text {
-		transition-delay: .08s;
+		--delay: .08s;
 	}
 
 	&__subheading {
 		@include heading-medium;
 		margin-bottom: var(--spacing-300);
-		transition-delay: .16s;
+		--delay: .16s;
 		max-width: 38rem;
 	}
 
@@ -113,7 +132,7 @@ $block: '.index-hero';
 
 		@for $i from 1 through 20 {
 			&:nth-of-type(#{$i}) {
-				transition-delay: #{.16 + (.08 * $i)}s;
+				--delay: #{.16 + (.08 * $i)}s;
 			}
 		}
 	}

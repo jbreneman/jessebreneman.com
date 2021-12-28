@@ -122,7 +122,7 @@ $block: '.project-card';
 			top: 0;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(-45deg, var(--primary), var(--secondary));
+			background: linear-gradient(-45deg, var(--gradient));
 			border-radius: 7px;
 			opacity: 0;
 			transition: opacity .24s ease;
