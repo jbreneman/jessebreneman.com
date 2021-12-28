@@ -1,23 +1,33 @@
 <template>
-	<div
-		class="index-projects"
-		:class="{ visible }"
-		v-observe-visibility="{
-			callback: visibilityChanged,
-			once: true,
-			intersection: {
-				rootMargin: '0px -100px 0px 0px'
-			},
-		}"
-	> 
+	<div class="index-projects"> 
 		<div class="index-projects__section">
-			<h2 class="index-projects__heading">
+			<h2
+				class="index-projects__heading"
+				:class="{ visible: visible.heading }"
+				v-observe-visibility="{
+					callback: (isVisible) => isVisible && visibilityChanged('heading'),
+					once: true,
+					intersection: {
+						rootMargin: '0px -100px 0px 0px',
+					},
+				}"
+			>
 				Projects
 			</h2>
-			<div class="index-projects__grid">
+			<div
+				class="index-projects__grid"
+				v-observe-visibility="{
+					callback: (isVisible) => isVisible && visibilityChanged('projects'),
+					once: true,
+					intersection: {
+						rootMargin: '0px -100px 0px 0px',
+					},
+				}"
+			>
 				<project-card
 					class="index-projects__item"
 					:key="project.name"
+					:class="{ visible: visible.projects }"
 					v-bind="project"
 					v-for="project in projects"
 				/>
@@ -63,13 +73,16 @@ const projects = [
 export default {
 	data() {
 		return {
-			visible: false,
+			visible: {
+				heading: false,
+				projects: false
+			},
 			projects
 		};
 	},
 	methods: {
-		visibilityChanged() {
-			this.visible = true;
+		visibilityChanged(name) {
+			this.visible[name] = true;
 		}
 	}
 }
@@ -108,19 +121,15 @@ $block: '.index-projects';
 		background: linear-gradient(rgba(black, .02), transparent);
 	}
 
-	&.visible {
-		#{$block} {
-			&__heading, &__item {
-				transform: translate3d(0, 0, 0);
-				opacity: 1;
-			}
-		}
+	.visible {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
 	}
 
 	&__heading, &__item {
 		transform: translate3d(0, 8px, 0);
 		opacity: 0;
-		transition: transform .36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .48s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: transform .72s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .8s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
 	&__section {
@@ -133,7 +142,7 @@ $block: '.index-projects';
 		position: relative;
 		display: inline;
 		line-height: 1.18;
-		background: -webkit-linear-gradient(115deg, var(--primary), var(--secondary));
+		background: -webkit-linear-gradient(115deg, var(--gradient));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 
@@ -144,7 +153,7 @@ $block: '.index-projects';
 			bottom: .25rem;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(-45deg, var(--primary), var(--secondary));
+			background: linear-gradient(-45deg, var(--gradient));
 			clip-path: inset(calc(100% - .75rem) 1rem .5rem 50%);
 			animation: 10s pulse ease-in-out infinite;
 		}

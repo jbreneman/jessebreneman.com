@@ -1,12 +1,12 @@
 @keyframes link-cycle {
-    from {
-        background-image: linear-gradient(120deg, var(--primary), var(--secondary), var(--primary), var(--secondary));
-        background-size: 300% 2px;
-        background-position: 0 90%;
-    }
-    to {
-        background-image: linear-gradient(120deg, var(--primary), var(--secondary), var(--primary), var(--secondary));
-        background-position: 100% 90%;
-        background-size: 300% 2px;
-    }
+  from {
+    background-image: linear-gradient(120deg, var(--gradient), var(--gradient));
+    background-size: 300% 2px;
+    background-position: 0 90%;
+  }
+  to {
+    background-image: linear-gradient(120deg, var(--gradient), var(--gradient));
+    background-position: 100% 90%;
+    background-size: 300% 2px;
+  }
 }

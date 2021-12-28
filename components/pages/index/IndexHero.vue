@@ -3,7 +3,7 @@
 		class="index-hero"
 		:class="{ visible }"
 		v-observe-visibility="{
-			callback: visibilityChanged,
+			callback: (isVisible) => isVisible && visibilityChanged(),
 			once: true,
 			intersection: {
 				rootMargin: '0px -100px 0px 0px'
@@ -56,7 +56,7 @@ $block: '.index-hero';
 	0% {
 		text-shadow: 0 0 0 var(--fade-color, var(--primary));
 		opacity: 0;
-		//transform: scaleX(1.1);
+		transform: translate3d(-.5rem, 0, 0);
 		color: transparent;
 	}
 	75% {
@@ -69,7 +69,7 @@ $block: '.index-hero';
 	100% {
 		opacity: 1;
 		color: inherit;
-		//transform: scaleX(1);
+		transform: translate3d(0, 0, 0);
 	}
 }
 
@@ -78,18 +78,18 @@ $block: '.index-hero';
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	--delay: .0s;
 
 	&.visible {
 		#{$block} {
 			&__eyebrow, &__heading-text, &__subheading, &__paragraph {
-				animation: fadein 1.25s linear forwards var(--delay, 0);
+				animation: fadein .75s ease forwards var(--delay, 0);
 			}
 		}
 	}
 
 	&__eyebrow, &__heading-text, &__subheading, &__paragraph {
 		opacity: 0;
-		//transition: transform .36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .48s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
 	&__section {

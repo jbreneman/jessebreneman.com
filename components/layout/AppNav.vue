@@ -77,7 +77,7 @@ $block: '.app-nav';
 	top: 0;
 	width: var(--app-nav-width);
 	height: 100%;
-	background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+	background: linear-gradient(180deg, var(--gradient));
 
 	&__logo {
 		position: relative;
