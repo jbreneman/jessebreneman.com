@@ -1,15 +1,16 @@
 <template>
-	<div class="index-projects"> 
+	<div class="index-projects">
 		<div class="index-projects__section">
 			<h2
 				class="index-projects__heading"
 				:class="{ visible: visible.heading }"
 				v-observe-visibility="{
-					callback: (isVisible) => isVisible && visibilityChanged('heading'),
+					callback: isVisible =>
+						isVisible && visibilityChanged('heading'),
 					once: true,
 					intersection: {
-						rootMargin: '0px -100px 0px 0px',
-					},
+						rootMargin: '0px -100px 0px 0px'
+					}
 				}"
 			>
 				Projects
@@ -17,11 +18,12 @@
 			<div
 				class="index-projects__grid"
 				v-observe-visibility="{
-					callback: (isVisible) => isVisible && visibilityChanged('projects'),
+					callback: isVisible =>
+						isVisible && visibilityChanged('projects'),
 					once: true,
 					intersection: {
-						rootMargin: '0px -100px 0px 0px',
-					},
+						rootMargin: '0px -100px 0px 0px'
+					}
 				}"
 			>
 				<project-card
@@ -39,35 +41,38 @@
 <script>
 const projects = [
 	{
-		name: 'Ninjarockstar.dev',
-		image: 'ninjarockstar.png',
-		description: 'My tech blog. Updated about once a quarter. :)',
-		link: 'https://ninjarockstar.dev'
+		name: "Ninjarockstar.dev",
+		image: "ninjarockstar.png",
+		description: "My tech blog. Updated about once a quarter. :)",
+		link: "https://ninjarockstar.dev"
 	},
 	{
-		name: 'My virtual kitchen',
-		image: 'myvirtualkitchen.png',
-		description: 'Web app for easily saving recipes and building your own cookbooks.',
-		link: 'https://myvirtual.kitchen'
+		name: "My virtual kitchen",
+		image: "myvirtualkitchen.png",
+		description:
+			"Web app for easily saving recipes and building your own cookbooks.",
+		link: "https://myvirtual.kitchen"
 	},
 	{
-		name: 'Background gradient builder',
-		image: 'backgroundgradient.png',
-		description: 'An experimental app I built to generate complex gradients.',
-		link: 'https://background-gradient-builder.netlify.app/'
+		name: "Background gradient builder",
+		image: "backgroundgradient.png",
+		description:
+			"An experimental app I built to generate complex gradients.",
+		link: "https://background-gradient-builder.netlify.app/"
 	},
 	{
-		name: 'TeaTimer',
-		image: 'teatimer.png',
-		description: 'A simple tea timer. Built to explore PWA technology back when it was new. I still use this to make tea!',
-		link: 'https://teatimer.website'
+		name: "TeaTimer",
+		image: "teatimer.png",
+		description:
+			"A simple tea timer. Built to explore PWA technology back when it was new. I still use this to make tea!",
+		link: "https://teatimer.website"
 	},
 	{
-		name: 'Suggestmycolors',
-		image: 'suggestmycolors.png',
+		name: "Suggestmycolors",
+		image: "suggestmycolors.png",
 		description: `A project I keep rewriting to learn new stuff. Current iteration was written to learn React + Typescript.`,
-		link: 'https://suggest.breneman.dev'
-	},
+		link: "https://suggest.breneman.dev"
+	}
 ];
 
 export default {
@@ -85,18 +90,18 @@ export default {
 			this.visible[name] = true;
 		}
 	}
-}
+};
 </script>
 
 <style lang="scss" scoped>
-$block: '.index-projects';
+$block: ".index-projects";
 
 @keyframes pulse {
 	0% {
 		opacity: 1;
 	}
 	50% {
-		opacity: .5;
+		opacity: 0.5;
 	}
 	100% {
 		opacity: 1;
@@ -112,13 +117,13 @@ $block: '.index-projects';
 	background-color: var(--grey-100);
 
 	&::before {
-		content: '';
+		content: "";
 		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
 		height: 8rem;
-		background: linear-gradient(rgba(black, .02), transparent);
+		background: linear-gradient(rgba(black, 0.02), transparent);
 	}
 
 	.visible {
@@ -126,17 +131,19 @@ $block: '.index-projects';
 		opacity: 1;
 	}
 
-	&__heading, &__item {
+	&__heading,
+	&__item {
 		transform: translate3d(0, 8px, 0);
 		opacity: 0;
-		transition: transform .72s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: transform 0.72s cubic-bezier(0.215, 0.61, 0.355, 1),
+			opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
 	&__section {
 		width: 100%;
 		max-width: 90rem;
 	}
-	
+
 	&__heading {
 		@include heading-large;
 		position: relative;
@@ -147,18 +154,18 @@ $block: '.index-projects';
 		-webkit-text-fill-color: transparent;
 
 		&::after {
-			content: '';
+			content: "";
 			position: absolute;
 			right: 0;
-			bottom: .25rem;
+			bottom: 0.25rem;
 			width: 100%;
 			height: 100%;
 			background: linear-gradient(-45deg, var(--gradient));
-			clip-path: inset(calc(100% - .75rem) 1rem .5rem 50%);
+			clip-path: inset(calc(100% - 0.75rem) 1rem 0.5rem 50%);
 			animation: 10s pulse ease-in-out infinite;
 		}
 	}
-	
+
 	&__grid {
 		margin-top: var(--spacing-flex);
 		display: grid;
@@ -175,9 +182,17 @@ $block: '.index-projects';
 
 		@for $i from 1 through 20 {
 			&:nth-of-type(#{$i}) {
-				transition-delay: #{.08 * $i}s;
+				transition-delay: #{0.08 * $i}s;
 			}
 		}
+	}
+}
+
+.dark-mode {
+	#{$block}__heading {
+		background: unset;
+		-webkit-background-clip: unset;
+		-webkit-text-fill-color: unset;
 	}
 }
 
