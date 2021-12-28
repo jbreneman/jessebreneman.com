@@ -1,14 +1,20 @@
 .sunset-mode {
-  --sunset1: #ffd043;
-  --sunset2: #febf57;
-  --sunset3: #fb9c63;
-  --sunset4: #e67369;
-  --sunset5: #ac5067;
-  --sunset6: #5f3767;
-  --sunset7: #332971;
+	--sunset1: #ffd043;
+	--sunset2: #febf57;
+	--sunset3: #fb9c63;
+	--sunset4: #e67369;
+	--sunset5: #ac5067;
+	--sunset6: #5f3767;
+	--sunset7: #332971;
 
-  --primary: var(--sunset2);
-  --secondary: var(--sunset6);
-  --gradient: var(--sunset1), var(--sunset2), var(--sunset3), var(--sunset4),
-    var(--sunset5), var(--sunset6), var(--sunset7);
+	--primary: var(--sunset2);
+	--secondary: var(--sunset6);
+	--gradient: var(--sunset1), var(--sunset2), var(--sunset3), var(--sunset4),
+		var(--sunset5), var(--sunset6), var(--sunset7);
+}
+
+.sunrise-mode {
+	--primary: #642b73;
+	--secondary: #c6426e;
+	--background-image: var(--primary) 10%, var(--secondary) 100%;
 }
