@@ -1,28 +1,36 @@
-@import 'base/animations';
+@import "base/animations";
+@import "base/themes";
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
-	margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-    font-family: 'Jost', sans-serif;
-    color: var(--grey-800);
+  font-family: "Jost", sans-serif;
+  color: var(--grey-800);
 }
 
 .visually-hidden {
-    @include visually-hidden;
+  @include visually-hidden;
 }
 
 ::selection {
-    background-color: var(--primary);
-    color: white;
+  background-color: var(--primary);
+  color: white;
 }
 
-h1, h2, h3, h4, h5, h6, a {
-    &::selection, ::selection {
-        background-color: var(--secondary);
-    }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  &::selection,
+  ::selection {
+    background-color: var(--secondary);
+  }
 }

@@ -62,6 +62,7 @@ export default {
 		// Doc: https://github.com/nuxt-community/stylelint-module
 		'@nuxtjs/stylelint-module',
 		'@nuxtjs/style-resources',
+		'@nuxtjs/color-mode',
 	],
 	/*
 	** Nuxt.js modules
