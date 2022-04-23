@@ -28,7 +28,7 @@
 			</p>
 			<p class="index-hero__paragraph">
 				<!-- eslint-disable-next-line -->
-				I'm based in Columbus, Ohio and currently building design systems at <a href="https://blend.com" class="index-hero__link">Blend</a>.
+				I'm based in Columbus, Ohio and currently building a better customer account platform at <a href="https://www.joinstatus.co/" class="index-hero__link">Status</a>.
 			</p>
 		</div>
 	</div>
