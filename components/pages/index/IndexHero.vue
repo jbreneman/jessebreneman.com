@@ -1,15 +1,11 @@
 <template>
-	<div
-		class="index-hero"
-		:class="{ visible }"
-		v-observe-visibility="{
-			callback: (isVisible) => isVisible && visibilityChanged(),
-			once: true,
-			intersection: {
-				rootMargin: '0px -100px 0px 0px'
-			},
-		}"
-	>
+	<div class="index-hero" :class="{ visible }" v-observe-visibility="{
+		callback: (isVisible) => isVisible && visibilityChanged(),
+		once: true,
+		intersection: {
+			rootMargin: '0px -100px 0px 0px'
+		},
+	}">
 		<div class="index-hero__section">
 			<h1 class="index-hero__heading">
 				<span class="index-hero__eyebrow">
@@ -20,15 +16,19 @@
 				</span>
 			</h1>
 			<p class="index-hero__subheading">
-				I’m a UI developer focused on crafting a beautiful, accessible web.
+				I’m a Frontend Engineer focused on crafting a beautiful, accessible web.
 			</p>
 			<p class="index-hero__paragraph">
 				<!-- eslint-disable-next-line -->
-				I like building things like design systems and component libraries. I’m that guy who thinks CSS isn’t <em>that</em> bad. I’m totally not a <a href="https://ninjarockstar.dev" class="index-hero__link">ninja rockstar dev</a>.
+				I like building things like design systems and making sure that everything is accessible. I’m the guy
+				who likes to nerd out about CSS and push the boundaries of what’s possible. I’m totally not a <a
+					href="https://ninjarockstar.dev" class="index-hero__link">ninja
+					rockstar dev</a>.
 			</p>
 			<p class="index-hero__paragraph">
 				<!-- eslint-disable-next-line -->
-				I'm based in Columbus, Ohio and currently building a better customer account platform at <a href="https://www.joinstatus.co/" class="index-hero__link">Status</a>.
+				I'm based in Columbus, Ohio and currently building the world’s best checkout at <a
+					href="https://shopify.com/" class="index-hero__link">Shopify</a>.
 			</p>
 		</div>
 	</div>
@@ -50,6 +50,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "../../../assets/styles/autoload" as *;
+
 $block: '.index-hero';
 
 @keyframes fadein {
@@ -59,13 +61,16 @@ $block: '.index-hero';
 		transform: translate3d(-.5rem, 0, 0);
 		color: transparent;
 	}
+
 	75% {
 		text-shadow: 0 0 0 var(--fade-color, var(--secondary));
 		color: transparent;
 	}
+
 	75.1% {
 		text-shadow: 0 0 0 var(--fade-color, var(--secondary));
 	}
+
 	100% {
 		opacity: 1;
 		color: inherit;
@@ -82,13 +87,20 @@ $block: '.index-hero';
 
 	&.visible {
 		#{$block} {
-			&__eyebrow, &__heading-text, &__subheading, &__paragraph {
+
+			&__eyebrow,
+			&__heading-text,
+			&__subheading,
+			&__paragraph {
 				animation: fadein .75s ease forwards var(--delay, 0);
 			}
 		}
 	}
 
-	&__eyebrow, &__heading-text, &__subheading, &__paragraph {
+	&__eyebrow,
+	&__heading-text,
+	&__subheading,
+	&__paragraph {
 		opacity: 0;
 	}
 
@@ -96,7 +108,7 @@ $block: '.index-hero';
 		width: 100%;
 		max-width: 90rem;
 	}
-	
+
 	&__heading {
 		@include heading-large;
 		display: flex;
@@ -126,7 +138,7 @@ $block: '.index-hero';
 		color: var(--grey-600);
 		max-width: 38rem;
 
-		& + & {
+		&+& {
 			margin-top: var(--spacing-300);
 		}
 

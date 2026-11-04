@@ -1,5 +1,6 @@
-@import "base/animations";
-@import "base/themes";
+@use "autoload" as *;
+@use "base/animations";
+@use "base/themes";
 
 *,
 *::before,
