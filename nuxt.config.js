@@ -35,11 +35,6 @@ export default {
 		'./assets/styles/vars',
 		'./assets/styles/global'
 	],
-	styleResources: {
-		scss: [
-			'./assets/styles/autoload.scss'
-		]
-	},
 	/*
 	** Plugins to load before mounting the App
 	** https://nuxtjs.org/guide/plugins
@@ -52,7 +47,9 @@ export default {
 	** Auto import components
 	** See https://nuxtjs.org/api/configuration-components
 	*/
-	components: true,
+	components: [
+		{ path: '~/components', pathPrefix: false }
+	],
 	/*
 	** Nuxt.js dev-modules
 	*/
@@ -61,7 +58,6 @@ export default {
 		'@nuxtjs/eslint-module',
 		// Doc: https://github.com/nuxt-community/stylelint-module
 		'@nuxtjs/stylelint-module',
-		'@nuxtjs/style-resources',
 		'@nuxtjs/color-mode',
 	],
 	/*
@@ -76,6 +72,15 @@ export default {
 	** See https://nuxtjs.org/api/configuration-build/
 	*/
 	build: {
+		loaders: {
+			scss: {
+				sassOptions: {
+					// sass-loader 10 uses the legacy API required by this webpack 4 stack.
+					// Keep stylesheet deprecations visible while using Dart Sass 1.x.
+					silenceDeprecations: ['legacy-js-api']
+				}
+			}
+		}
 	},
 	responsiveLoader: {
 		placeholder: true

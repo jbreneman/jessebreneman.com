@@ -18,11 +18,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "sass:math";
+
 $block: '.nav-anim';
 
 @function randomNum($min, $max) {
-  $rand: random();
-  $randomNum: $min + floor($rand * (($max - $min) + 1));
+  $rand: math.random();
+  $randomNum: $min + math.floor($rand * (($max - $min) + 1));
 
   @return $randomNum;
 }
@@ -55,13 +57,13 @@ $block: '.nav-anim';
 
 		@for $i from 1 through 31 {
 			&:nth-of-type(#{$i}) {
-				$size: random();
-				animation-delay: #{randomNum(5, 200) / 100}s;
-				animation-duration: #{randomNum(500, 1200) / 100}s;
-				left: #{random(70) + 10 + '%'};
+				$size: math.random();
+				animation-delay: #{math.div(randomNum(5, 200), 100)}s;
+				animation-duration: #{math.div(randomNum(500, 1200), 100)}s;
+				left: #{math.random(70) + 10 + '%'};
 				width: #{$size}rem;
 				height: #{$size}rem;
-				background-color: rgba(white, randomNum(10, 50) / 100);
+				background-color: rgba(white, math.div(randomNum(10, 50), 100));
 			}
 		}
 	}

@@ -63,6 +63,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "../../../assets/styles/autoload" as *;
+
 $block: ".project-card";
 
 #{$block} {

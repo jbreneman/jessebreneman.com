@@ -8,28 +8,31 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint:style": "stylelint \"**/*.{vue,css,scss}\" --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "nuxt": "^2.14.0",
+    "nuxt": "^2.18.1",
     "nuxt-responsive-loader": "^2.0.1",
     "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.1.1",
-    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/style-resources": "^1.0.0",
-    "@nuxtjs/stylelint-module": "^4.0.0",
+    "@nuxtjs/stylelint-module": "^4.2.2",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-nuxt": "^1.0.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.3",
-    "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0"
+    "eslint-plugin-nuxt": "^2.0.0",
+    "postcss": "^8.5.32",
+    "postcss-html": "^1.8.1",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.93.2",
+    "sass-loader": "^10.5.2",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^24.0.0",
+    "webpack": "^4.47.0"
   }
 }
