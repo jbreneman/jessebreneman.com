@@ -20,6 +20,8 @@ export default {
 $block: ".app-footer";
 
 #{$block} {
+	// Paint after the preceding positioned section at the shared edge.
+	position: relative;
 	padding: var(--spacing-flex);
 	background-color: var(--grey-900);
 	color: var(--grey-0);

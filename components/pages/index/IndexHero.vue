@@ -7,7 +7,7 @@
 		},
 	}">
 		<div class="index-hero__section">
-			<h1 class="index-hero__heading">
+			<h1 :id="headingId" class="index-hero__heading">
 				<span class="index-hero__eyebrow">
 					Hey, I'm
 				</span>
@@ -35,9 +35,18 @@
 </template>
 
 <script>
+import { contact } from '~/content/portfolio';
+
 export default {
+	props: {
+		headingId: {
+			type: String,
+			default: undefined
+		}
+	},
 	data() {
 		return {
+			contact,
 			visible: false
 		};
 	},

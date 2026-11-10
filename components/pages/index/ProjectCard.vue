@@ -1,11 +1,8 @@
 <template>
 	<article class="project-card">
-		<img
-			class="project-card__image"
-			:src="asset.placeholder"
-			:srcset="asset.srcSet"
-			alt=""
-		/>
+		<div class="project-card__background">
+			<img class="project-card__image" :src="asset.placeholder" :srcset="asset.srcSet" alt="" />
+		</div>
 		<div class="project-card__content">
 			<h3 class="project-card__heading" v-if="name">
 				{{ name }}
@@ -16,15 +13,10 @@
 			<a class="project-card__link" :href="link" v-if="link">
 				<!-- eslint-disable-next-line -->
 				Visit project
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 100 100"
-					class="project-card__arrow"
-				>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="project-card__arrow">
 					<path
 						d="M10 50.005c.028.715.322 1.542.812 2.063l16 17c1.085.975 3.164 1.377 4.375.25 1.194-1.109 1.159-3.26-.03-4.375l-11.25-11.938H87a3 3 0 000-6H19.906l11.25-11.938c1.024-1.025 1.213-3.253.031-4.375-1.181-1.122-3.335-.764-4.375.25l-16 17A2.885 2.885 0 0010 50.006z"
-						fill="currentColor"
-					/>
+						fill="currentColor" />
 				</svg>
 			</a>
 		</div>
@@ -70,48 +62,69 @@ $block: ".project-card";
 #{$block} {
 	position: relative;
 	z-index: 0;
+	isolation: isolate;
 	min-height: 20vh;
-	border-radius: 8px;
-	overflow: hidden;
 	display: flex;
-	background-color: var(--grey-0);
-	border: 1px solid var(--grey-200);
-	box-shadow: 0 1px 2px rgba(black, 0.02), 0 2px 4px rgba(black, 0.02),
-		0 4px 8px rgba(black, 0.02), 0 8px 16px rgba(black, 0.02),
-		0 16px 32px rgba(black, 0.02), 0 32px 64px rgba(black, 0.02);
+	border: 1px solid transparent;
 
-	&:hover {
+	&:hover,
+	&:focus-within {
 		#{$block} {
-			&__image {
-				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+			&__background {
+				top: -17px;
+				right: -17px;
+				bottom: -17px;
+				left: -17px;
 			}
+		}
+	}
 
-			&__content {
-				&::before {
-					opacity: 0.15;
-				}
-			}
+	&__background {
+		position: absolute;
+		z-index: 0;
+		top: -1px;
+		right: -1px;
+		bottom: -1px;
+		left: -1px;
+		pointer-events: none;
+		transition: top 240ms ease, right 240ms ease, bottom 240ms ease,
+			left 240ms ease;
+		border-radius: 16px;
+		overflow: hidden;
+		background-color: var(--grey-0);
+		box-shadow: 0 1px 2px rgba(black, 0.02), 0 2px 4px rgba(black, 0.02),
+			0 4px 8px rgba(black, 0.02), 0 8px 16px rgba(black, 0.02),
+			0 16px 32px rgba(black, 0.02), 0 32px 64px rgba(black, 0.02);
+
+		&::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border: 1px solid var(--grey-200);
+			border-radius: inherit;
 		}
 	}
 
 	&__image {
 		position: absolute;
-		z-index: -1;
+		z-index: 0;
 		left: 0;
 		top: 0;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		clip-path: polygon(70% 0%, 100% 0%, 100% 100%, 80% 100%);
-		transition: clip-path 0.24s ease;
 	}
 
 	&__content {
 		position: relative;
-		z-index: 0;
-		width: 65%;
+		z-index: 1;
+		width: 75%;
 		height: auto;
-		margin: 0.5rem;
+		margin: 2rem auto;
 		padding: calc(var(--spacing-flex) / 2);
 
 		&::before {
@@ -124,8 +137,7 @@ $block: ".project-card";
 			height: 100%;
 			background: linear-gradient(-45deg, var(--gradient));
 			border-radius: 7px;
-			opacity: 0;
-			transition: opacity 0.24s ease;
+			opacity: 0.15;
 			filter: blur(2px);
 		}
 
@@ -168,14 +180,17 @@ $block: ".project-card";
 	}
 }
 
+@media (prefers-reduced-motion: reduce) {
+	#{$block}__background {
+		transition: none;
+	}
+}
+
 @media screen and (max-width: 540px) {
 	#{$block} {
-		&__image {
-			clip-path: polygon(0% 80%, 100% 70%, 100% 100%, 0% 100%);
-		}
-
 		&__content {
-			width: 100%;
+			width: calc(100% - 1rem);
+			margin-top: 1rem;
 			margin-bottom: calc(var(--spacing-flex) * 4);
 		}
 	}
