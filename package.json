@@ -3,36 +3,36 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "build": "nuxt build",
-    "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint \"**/*.{vue,css,scss}\" --ignore-path .gitignore",
-    "lint": "npm run lint:js && npm run lint:style"
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint:js": "eslint .",
+    "lint:style": "stylelint \"app/**/*.{vue,css,scss}\"",
+    "lint": "npm run lint:js && npm run lint:style",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "nuxt": "^2.18.1",
-    "nuxt-responsive-loader": "^2.0.1",
-    "vue-observe-visibility": "^0.4.6"
+    "@nuxt/image": "2.2.1",
+    "@nuxtjs/color-mode": "4.1.0",
+    "nuxt": "4.6.4",
+    "vue": "3.5.45",
+    "vue-router": "5.5.0"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^2.1.1",
-    "@nuxtjs/eslint-config": "^6.0.1",
-    "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/stylelint-module": "^4.2.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "postcss": "^8.5.32",
+    "@nuxt/eslint": "1.17.0",
+    "@playwright/test": "1.65.0",
+    "eslint": "10.14.0",
     "postcss-html": "^1.8.1",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.93.2",
-    "sass-loader": "^10.5.2",
-    "stylelint": "^14.16.1",
-    "stylelint-config-standard": "^24.0.0",
-    "webpack": "^4.47.0"
+    "sass": "1.108.1",
+    "stylelint": "18.0.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": "^24.22.2",
+    "npm": ">=11"
   }
 }
