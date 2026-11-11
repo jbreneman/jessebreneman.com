@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 			]
 		}
 	},
-	css: ['~/assets/styles/vars.scss', '~/assets/styles/global.scss'],
+	css: ['~/assets/styles/vars.css', '~/assets/styles/global.css'],
 	components: [{ path: '~/components', pathPrefix: false }],
 	modules: ['@nuxt/image', '@nuxtjs/color-mode', '@nuxt/eslint'],
 	colorMode: {

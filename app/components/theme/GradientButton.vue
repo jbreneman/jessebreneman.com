@@ -1,10 +1,10 @@
 <template>
 	<a class="gradient-button" :href="href">
-		<span class="gradient-button__label">
+		<span class="gradient-button-label">
 			<span>{{ label }}</span>
-			<span class="gradient-button__shimmer" aria-hidden="true">{{ label }}</span>
+			<span class="gradient-button-shimmer" aria-hidden="true">{{ label }}</span>
 		</span>
-		<svg class="gradient-button__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+		<svg class="gradient-button-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 			<path
 d="M4 12h16m-6-6 6 6-6 6"
 				fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
@@ -24,6 +24,7 @@ export default {
 <style scoped>
 /* A button-sized take on https://codepen.io/Chester/pen/QPoyjN,
  * with the site's palette and interaction-triggered motion. */
+
 @property --cta-angle {
 	syntax: "<angle>";
 	inherits: false;
@@ -47,39 +48,44 @@ export default {
 	font-weight: 700;
 	line-height: 1.4;
 	text-decoration: none;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		border-radius: inherit;
+	}
+
+	&::before {
+		z-index: -2;
+		inset: 0;
+		background: linear-gradient(115deg, var(--gradient));
+		background: conic-gradient(from var(--cta-angle), var(--gradient), var(--primary));
+	}
+
+	&::after {
+		z-index: -1;
+		inset: 2px;
+		border-radius: 10px;
+		background: var(--grey-0);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--grey-900);
+		outline-offset: 5px;
+	}
 }
 
-.gradient-button::before,
-.gradient-button::after {
-	content: '';
-	position: absolute;
-	pointer-events: none;
-	border-radius: inherit;
-}
-
-.gradient-button::before {
-	z-index: -2;
-	inset: 0;
-	background: linear-gradient(115deg, var(--gradient));
-	background: conic-gradient(from var(--cta-angle), var(--gradient), var(--primary));
-}
-
-.gradient-button::after {
-	z-index: -1;
-	inset: 2px;
-	border-radius: 10px;
-	background: var(--grey-0);
-}
-
-.gradient-button__label {
+.gradient-button-label {
 	display: inline-grid;
+
+	& > span {
+		grid-area: 1 / 1;
+	}
 }
 
-.gradient-button__label > span {
-	grid-area: 1 / 1;
-}
-
-.gradient-button__shimmer {
+.gradient-button-shimmer {
 	pointer-events: none;
 	user-select: none;
 	color: transparent;
@@ -90,43 +96,44 @@ export default {
 	-webkit-background-clip: text;
 }
 
-.gradient-button__arrow {
+.gradient-button-arrow {
 	flex: 0 0 auto;
 	width: 1.25rem;
 	height: 1.25rem;
 	transition: transform 220ms ease;
 }
 
-.gradient-button:focus-visible {
-	outline: 2px solid var(--grey-900);
-	outline-offset: 5px;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-	.gradient-button:is(:hover, :focus-visible)::before {
-		animation: cta-border-turn 2.5s linear infinite;
-	}
+	.gradient-button {
+		&:is(:hover, :focus-visible)::before {
+			animation: cta-border-turn 2.5s linear infinite;
+		}
 
-	.gradient-button:is(:hover, :focus-visible) .gradient-button__shimmer {
-		animation: cta-text-shimmer 650ms ease-in-out both;
-	}
+		&:is(:hover, :focus-visible) .gradient-button-shimmer {
+			animation: cta-text-shimmer 650ms ease-in-out both;
+		}
 
-	.gradient-button:is(:hover, :focus-visible) .gradient-button__arrow {
-		transform: translateX(3px);
+		&:is(:hover, :focus-visible) .gradient-button-arrow {
+			transform: translateX(3px);
+		}
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.gradient-button__arrow {
+	.gradient-button-arrow {
 		transition: none;
 	}
 }
 
 @keyframes cta-border-turn {
-	to { --cta-angle: 475deg; }
+	to {
+		--cta-angle: 475deg;
+	}
 }
 
 @keyframes cta-text-shimmer {
-	to { background-position: 0 0; }
+	to {
+		background-position: 0 0;
+	}
 }
 </style>

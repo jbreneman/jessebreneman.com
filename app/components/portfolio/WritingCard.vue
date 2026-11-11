@@ -1,8 +1,8 @@
 <template>
 	<a class="writing-card" :href="entry.link" :style="styles">
-		<h3 class="writing-card__title">{{ entry.name }}</h3>
-		<time class="writing-card__date" :datetime="entry.date">{{ formattedDate }}</time>
-		<span class="writing-card__tags">{{ entry.keywords.join(', ') }}</span>
+		<h3 class="writing-card-title">{{ entry.name }}</h3>
+		<time class="writing-card-date" :datetime="entry.date">{{ formattedDate }}</time>
+		<span class="writing-card-tags">{{ entry.keywords.join(', ') }}</span>
 	</a>
 </template>
 
@@ -28,8 +28,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 /* Card styles from ninjarockstar-v2/pages/index.vue. */
+
 .writing-card {
 	position: relative;
 	z-index: 0;
@@ -43,28 +44,21 @@ export default {
 	overflow: hidden;
 	transition: color 0.24s, box-shadow 0.36s ease-out;
 	color: var(--text-color);
-	box-shadow: 4px 4px 0 rgb(var(--color-1) / 0.1),
-		8px 8px 0 rgb(var(--color-1) / 0.1);
+	box-shadow: 4px 4px 0 rgb(var(--color-1)/0.1), 8px 8px 0 rgb(var(--color-1)/0.1);
 
 	&::before {
-		content: '';
+		content: "";
 		position: absolute;
 		z-index: -1;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
+		inset: 0;
 		background: var(--background);
 	}
 
 	&::after {
-		content: '';
+		content: "";
 		position: absolute;
 		z-index: -1;
-		left: 1px;
-		top: 1px;
-		width: calc(100% - 2px);
-		height: calc(100% - 2px);
+		inset: 1px;
 		background: white;
 		border-radius: 4px;
 		transition: clip-path 0.24s;
@@ -74,34 +68,35 @@ export default {
 	&:hover,
 	&:focus-visible {
 		color: black;
-		box-shadow: 0 0 0 rgb(var(--color-1) / 0.1), 0 0 0 rgb(var(--color-1) / 0.1);
+		box-shadow: 0 0 0 rgb(var(--color-1)/0.1), 0 0 0 rgb(var(--color-1)/0.1);
+	}
 
-		&::after {
-			clip-path: circle(150% at 100% 100%);
-		}
+	&:hover::after,
+	&:focus-visible::after {
+		clip-path: circle(150% at 100% 100%);
 	}
 
 	&:focus-visible {
 		outline: 2px solid currentColor;
 		outline-offset: 4px;
 	}
+}
 
-	&__title {
-		font-size: 1.5rem;
-		font-weight: 400;
-		margin-bottom: auto;
-	}
+.writing-card-title {
+	font-size: 1.5rem;
+	font-weight: 400;
+	margin-bottom: auto;
+}
 
-	&__date {
-		margin-top: 1rem;
-		font-size: 1.125rem;
-	}
+.writing-card-date {
+	margin-top: 1rem;
+	font-size: 1.125rem;
+}
 
-	&__tags {
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		opacity: 0.75;
-	}
+.writing-card-tags {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	opacity: 0.75;
 }
 
 @media (prefers-reduced-motion: reduce) {

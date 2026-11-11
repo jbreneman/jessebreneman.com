@@ -1,0 +1,44 @@
+@import "./base/animations.css";
+@import "./base/themes.css";
+@import "./elements/link.css";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: "Jost", sans-serif;
+	color: var(--grey-800);
+	background: var(--grey-0);
+}
+
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+::selection {
+	background-color: var(--primary);
+	color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+	&::selection,
+	& ::selection {
+		background-color: var(--secondary);
+	}
+}

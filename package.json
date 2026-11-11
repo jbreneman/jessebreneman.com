@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint .",
-    "lint:style": "stylelint \"app/**/*.{vue,css,scss}\"",
+    "lint:style": "stylelint \"app/**/*.{vue,css}\"",
     "lint": "npm run lint:js && npm run lint:style",
     "test": "node --test tests/*.test.mjs",
     "test:browser": "playwright test"
@@ -26,8 +26,6 @@
     "@playwright/test": "1.65.0",
     "eslint": "10.14.0",
     "postcss-html": "^1.8.1",
-    "postcss-scss": "^4.0.9",
-    "sass": "1.108.1",
     "stylelint": "18.0.0"
   },
   "type": "module",
