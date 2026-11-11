@@ -80,8 +80,11 @@ dist
 # IDE / Editor
 .idea
 
-# Service worker
-sw.*
+# Nuxt 4 output
+.output/
+.data/
+playwright-report/
+test-results/
 
 # macOS
 .DS_Store
