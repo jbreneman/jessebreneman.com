@@ -7,14 +7,10 @@
 	</div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .layout {
 	padding-left: var(--app-nav-width);
-	background: linear-gradient(
-		to right,
-		var(--grey-100) var(--app-nav-width),
-		var(--grey-0) var(--app-nav-width)
-	);
+	background: linear-gradient(to right, var(--grey-100) var(--app-nav-width), var(--grey-0) var(--app-nav-width));
 }
 
 .theme-button {

@@ -56,7 +56,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .theme-button {
 	--icon-size: 2rem;
 	--padding: var(--spacing-200);
@@ -68,12 +68,10 @@ export default {
 	border-radius: 50%;
 	background-color: white;
 	border: 1px solid var(--grey-100);
-	box-shadow: 0 1px 2px rgba(black, 0.02), 0 2px 4px rgba(black, 0.02),
-		0 4px 8px rgba(black, 0.02), 0 8px 16px rgba(black, 0.02),
-		0 16px 32px rgba(black, 0.02), 0 32px 64px rgba(black, 0.02);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.02), 0 16px 32px rgba(0, 0, 0, 0.02), 0 32px 64px rgba(0, 0, 0, 0.02);
 	padding: var(--padding);
-	width: calc(var(--icon-size) + (var(--padding) * 2) + 2px);
-	height: calc(var(--icon-size) + (var(--padding) * 2) + 2px);
+	width: calc(var(--icon-size) + var(--padding) * 2 + 2px);
+	height: calc(var(--icon-size) + var(--padding) * 2 + 2px);
 }
 
 .theme-icon {

@@ -1,8 +1,7 @@
 export default {
 	ignoreFiles: ['node_modules/**', '.nuxt/**', '.output/**', 'dist/**'],
 	overrides: [
-		{ files: ['**/*.vue'], customSyntax: 'postcss-html' },
-		{ files: ['**/*.scss'], customSyntax: 'postcss-scss' }
+		{ files: ['**/*.vue'], customSyntax: 'postcss-html' }
 	],
 	rules: {
 		'block-no-empty': true,

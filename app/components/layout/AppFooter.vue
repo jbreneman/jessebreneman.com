@@ -1,6 +1,6 @@
 <template>
 	<footer class="app-footer">
-		<p class="app-footer__copyright">
+		<p class="app-footer-copyright">
 			Copyright &copy; {{ year }} Jesse Breneman
 		</p>
 	</footer>
@@ -16,19 +16,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$block: ".app-footer";
-
-#{$block} {
-	// Paint after the preceding positioned section at the shared edge.
+<style scoped>
+.app-footer {
+	/* Paint after the preceding positioned section at the shared edge. */
 	position: relative;
 	padding: var(--spacing-flex);
 	background-color: var(--grey-900);
 	color: var(--grey-0);
 	text-align: center;
+}
 
-	&__copyright {
-		margin-top: var(--spacing-200);
-	}
+.app-footer-copyright {
+	margin-top: var(--spacing-200);
 }
 </style>

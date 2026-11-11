@@ -1,7 +1,7 @@
 <template>
 	<transition name="nav-in">
 		<nav v-if="mounted" class="app-nav">
-			<nuxt-link class="app-nav__logo" to="/" no-prefetch>
+			<nuxt-link class="app-nav-logo" to="/" no-prefetch>
 				<span aria-hidden="true">
 					J
 				</span>
@@ -9,17 +9,17 @@
 					Go to homepage
 				</span>
 			</nuxt-link>
-			<ul class="app-nav__list">
-				<li class="app-nav__item">
-					<a href="https://github.com/jbreneman" class="app-nav__link">
-						<span class="app-nav__dots" aria-hidden="true">
-							<span v-for="dot in 3" :key="dot" class="app-nav__dot" />
+			<ul class="app-nav-list">
+				<li class="app-nav-item">
+					<a href="https://github.com/jbreneman" class="app-nav-link">
+						<span class="app-nav-dots" aria-hidden="true">
+							<span v-for="dot in 3" :key="dot" class="app-nav-dot" />
 						</span>
-						<span class="app-nav__label">
+						<span class="app-nav-label">
 							My Github
 						</span>
 						<!-- eslint-disable-next-line -->
-						<svg class="app-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+						<svg class="app-nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
 							aria-hidden="true" focusable="false">
 							<path
 fill="currentColor"
@@ -27,16 +27,16 @@ fill="currentColor"
 						</svg>
 					</a>
 				</li>
-				<li class="app-nav__item">
-					<a href="https://www.linkedin.com/in/jessebreneman/" class="app-nav__link">
-						<span class="app-nav__dots" aria-hidden="true">
-							<span v-for="dot in 3" :key="dot" class="app-nav__dot" />
+				<li class="app-nav-item">
+					<a href="https://www.linkedin.com/in/jessebreneman/" class="app-nav-link">
+						<span class="app-nav-dots" aria-hidden="true">
+							<span v-for="dot in 3" :key="dot" class="app-nav-dot" />
 						</span>
-						<span class="app-nav__label">
+						<span class="app-nav-label">
 							My LinkedIn
 						</span>
 						<!-- eslint-disable-next-line -->
-						<svg class="app-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+						<svg class="app-nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
 							aria-hidden="true" focusable="false">
 							<path
 fill="currentColor"
@@ -44,16 +44,16 @@ fill="currentColor"
 						</svg>
 					</a>
 				</li>
-				<li class="app-nav__item">
-					<a href="https://ninjarockstar.dev" class="app-nav__link">
-						<span class="app-nav__dots" aria-hidden="true">
-							<span v-for="dot in 3" :key="dot" class="app-nav__dot" />
+				<li class="app-nav-item">
+					<a href="https://ninjarockstar.dev" class="app-nav-link">
+						<span class="app-nav-dots" aria-hidden="true">
+							<span v-for="dot in 3" :key="dot" class="app-nav-dot" />
 						</span>
-						<span class="app-nav__label">
+						<span class="app-nav-label">
 							ninjarockstar.dev
 						</span>
 						<!-- eslint-disable-next-line -->
-						<svg class="app-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+						<svg class="app-nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
 							aria-hidden="true" focusable="false">
 							<path
 fill="currentColor" fill-rule="evenodd"
@@ -61,16 +61,16 @@ fill="currentColor" fill-rule="evenodd"
 						</svg>
 					</a>
 				</li>
-				<li class="app-nav__item">
-					<a href="https://codepen.io/Chester" class="app-nav__link">
-						<span class="app-nav__dots" aria-hidden="true">
-							<span v-for="dot in 3" :key="dot" class="app-nav__dot" />
+				<li class="app-nav-item">
+					<a href="https://codepen.io/Chester" class="app-nav-link">
+						<span class="app-nav-dots" aria-hidden="true">
+							<span v-for="dot in 3" :key="dot" class="app-nav-dot" />
 						</span>
-						<span class="app-nav__label">
+						<span class="app-nav-label">
 							My codepen experiments
 						</span>
 						<!-- eslint-disable-next-line -->
-						<svg class="app-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+						<svg class="app-nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
 							aria-hidden="true" focusable="false">
 							<path
 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -80,7 +80,7 @@ fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 					</a>
 				</li>
 			</ul>
-			<app-nav-animation class="app-nav__background" />
+			<app-nav-animation class="app-nav-background" />
 		</nav>
 	</transition>
 </template>
@@ -98,19 +98,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$block: '.app-nav';
-
+<style scoped>
 .nav-in-enter {
 	transform: translate3d(-50%, 0, 0);
 	opacity: 0;
 }
 
 .nav-in-enter-active {
-	transition: transform .36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .48s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition: transform 0.36s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.48s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-#{$block} {
+.app-nav {
 	position: fixed;
 	z-index: 10;
 	left: 0;
@@ -118,195 +116,201 @@ $block: '.app-nav';
 	width: var(--app-nav-width);
 	height: 100%;
 	background: linear-gradient(180deg, var(--gradient));
+}
 
-	&__logo {
-		position: relative;
-		width: 100%;
-		height: var(--app-nav-width);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: white;
-		font-weight: 700;
-		font-size: 3rem;
-		text-decoration: none;
-		transition: color .36s cubic-bezier(0.215, 0.61, 0.355, 1);
-		user-select: none;
+.app-nav-logo {
+	position: relative;
+	width: 100%;
+	height: var(--app-nav-width);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-weight: 700;
+	font-size: 3rem;
+	text-decoration: none;
+	transition: color 0.36s cubic-bezier(0.215, 0.61, 0.355, 1);
+	user-select: none;
 
-		&::after {
-			content: '';
-			position: absolute;
-			left: 20%;
-			top: 20%;
-			width: 60%;
-			height: 60%;
-			background-size: cover;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 50.005c.028.715.322 1.542.812 2.063l16 17c1.085.975 3.164 1.377 4.375.25 1.194-1.109 1.159-3.26-.03-4.375l-11.25-11.938H87a3 3 0 000-6H19.906l11.25-11.938c1.024-1.025 1.213-3.253.031-4.375-1.181-1.122-3.335-.764-4.375.25l-16 17A2.885 2.885 0 0010 50.006z' fill='white'/%3E%3C/svg%3E");
-			transform: translate3d(20px, 0, 0) scale(.8);
-			opacity: 0;
-			transition: opacity .24s ease, transform .36s cubic-bezier(0.215, 0.61, 0.355, 1);
-		}
-
-		&:hover {
-			color: rgba(white, .5);
-
-			&::after {
-				opacity: 1;
-				transform: translate3d(0, 0, 0);
-			}
-		}
-	}
-
-	&__list {
-		color: white;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		margin-top: var(--spacing-flex);
-	}
-
-	&__item {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-		&+& {
-			margin-top: calc(var(--spacing-flex) / 4);
-		}
-	}
-
-	&__link {
-		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		color: inherit;
-		text-decoration: none;
-		transition: color .24s ease;
-
-		&:hover,
-		&:focus {
-			#{$block}__label {
-				opacity: 1;
-				transform: translate(0, -50%);
-				pointer-events: auto;
-				box-shadow: .25rem .25rem 0 var(--primary), .5rem .5rem 0 var(--secondary);
-			}
-
-			#{$block}__dot {
-				opacity: 1;
-				transform: translate(0, -50%);
-				box-shadow: .0625rem .0625rem 0 var(--primary), .125rem .125rem 0 var(--secondary);
-				transition-delay: var(--dot-delay);
-			}
-
-			#{$block}__icon {
-				transform: translateX(-.125rem) rotate(-6deg);
-			}
-		}
-
-		&:focus-visible {
-			outline: 2px solid currentColor;
-			outline-offset: 4px;
-		}
-	}
-
-	&__label {
+	&::after {
+		content: "";
 		position: absolute;
-		left: 100%;
-		top: 50%;
-		width: max-content;
-		max-width: calc(100vw - var(--app-nav-width) - 2.25rem - 4px);
-		margin-left: calc(1rem + 4px);
-		padding: .625rem 1rem;
-		background: var(--grey-0);
-		color: var(--grey-900);
-		font-size: clamp(1rem, 3vw, 1.25rem);
-		font-weight: 700;
-		line-height: 1.2;
-		letter-spacing: -.025em;
-		box-shadow: 0 0 0 var(--primary), 0 0 0 var(--secondary);
+		left: 20%;
+		top: 20%;
+		width: 60%;
+		height: 60%;
+		background-size: cover;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 50.005c.028.715.322 1.542.812 2.063l16 17c1.085.975 3.164 1.377 4.375.25 1.194-1.109 1.159-3.26-.03-4.375l-11.25-11.938H87a3 3 0 000-6H19.906l11.25-11.938c1.024-1.025 1.213-3.253.031-4.375-1.181-1.122-3.335-.764-4.375.25l-16 17A2.885 2.885 0 0010 50.006z' fill='white'/%3E%3C/svg%3E");
+		transform: translate3d(20px, 0, 0) scale(0.8);
 		opacity: 0;
-		transform: translate(-.75rem, -50%) skewY(-4deg);
-		transform-origin: left center;
-		pointer-events: none;
-		transition: opacity .16s ease, transform .32s cubic-bezier(.16, 1, .3, 1), box-shadow .32s ease;
-
-		// Bridge the gap so the label stays open when the pointer reaches it.
-		&::before {
-			content: '';
-			position: absolute;
-			right: 100%;
-			top: 0;
-			width: calc(1rem + 4px);
-			height: 100%;
-		}
-
+		transition: opacity 0.24s ease, transform 0.36s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
-	&__dots {
-		--dot-step: calc((var(--app-nav-width) - 1.5rem) / 4 - .125rem);
-
-		position: absolute;
-		left: calc(100% + 1rem);
-		top: 50%;
-		width: 0;
-		height: 0;
-		pointer-events: none;
+	&:hover {
+		color: rgba(255, 255, 255, 0.5);
 	}
 
-	&__dot {
-		position: absolute;
-		top: 0;
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: white;
-		box-shadow: 0 0 0 var(--primary), 0 0 0 var(--secondary);
-		opacity: 0;
-		transform: translate(-.375rem, -50%) skewY(-4deg);
-		transform-origin: left center;
-		transition: opacity .16s ease, transform .32s cubic-bezier(.16, 1, .3, 1), box-shadow .32s ease;
-
-		// Start all dots at the icon, then send them to their individual positions.
-		@for $dot from 1 through 3 {
-			&:nth-child(#{$dot}) {
-				--dot-delay: #{$dot * .025s};
-				--dot-travel: calc(#{1 - $dot} * var(--dot-step) - .75rem);
-
-				right: calc(.25rem + #{3 - $dot} * var(--dot-step));
-			}
-		}
-	}
-
-	&__icon {
-		width: 2rem;
-		height: 2rem;
-		transition: transform .32s cubic-bezier(.16, 1, .3, 1);
-	}
-
-	&__background {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
+	&:hover::after {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
 	}
 }
 
-@media (prefers-reduced-motion: no-preference) {
+.app-nav-list {
+	color: white;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-top: var(--spacing-flex);
+}
 
-	#{$block}__link:hover #{$block}__dot,
-	#{$block}__link:focus #{$block}__dot {
-		animation: nav-dot-arrive .24s ease-out var(--dot-delay) both;
+.app-nav-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	& + .app-nav-item {
+		margin-top: calc(var(--spacing-flex) / 4);
+	}
+}
+
+.app-nav-link {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.24s ease;
+
+	&:hover .app-nav-label,
+	&:focus .app-nav-label {
+		opacity: 1;
+		transform: translate(0, -50%);
+		pointer-events: auto;
+		box-shadow: 0.25rem 0.25rem 0 var(--primary), 0.5rem 0.5rem 0 var(--secondary);
+	}
+
+	&:hover .app-nav-dot,
+	&:focus .app-nav-dot {
+		opacity: 1;
+		transform: translate(0, -50%);
+		box-shadow: 0.0625rem 0.0625rem 0 var(--primary), 0.125rem 0.125rem 0 var(--secondary);
+		transition-delay: var(--dot-delay);
+	}
+
+	&:hover .app-nav-icon,
+	&:focus .app-nav-icon {
+		transform: translateX(-0.125rem) rotate(-6deg);
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
+	}
+}
+
+.app-nav-label {
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	width: max-content;
+	max-width: calc(100vw - var(--app-nav-width) - 2.25rem - 4px);
+	margin-left: calc(1rem + 4px);
+	padding: 0.625rem 1rem;
+	background: var(--grey-0);
+	color: var(--grey-900);
+	font-size: clamp(1rem, 3vw, 1.25rem);
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.025em;
+	box-shadow: 0 0 0 var(--primary), 0 0 0 var(--secondary);
+	opacity: 0;
+	transform: translate(-0.75rem, -50%) skewY(-4deg);
+	transform-origin: left center;
+	pointer-events: none;
+	transition: opacity 0.16s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease;
+	/* Bridge the gap so the label stays open when the pointer reaches it. */
+
+	&::before {
+		content: "";
+		position: absolute;
+		right: 100%;
+		top: 0;
+		width: calc(1rem + 4px);
+		height: 100%;
+	}
+}
+
+.app-nav-dots {
+	--dot-step: calc((var(--app-nav-width) - 1.5rem) / 4 - .125rem);
+	position: absolute;
+	left: calc(100% + 1rem);
+	top: 50%;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.app-nav-dot {
+	position: absolute;
+	top: 0;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: white;
+	box-shadow: 0 0 0 var(--primary), 0 0 0 var(--secondary);
+	opacity: 0;
+	transform: translate(-0.375rem, -50%) skewY(-4deg);
+	transform-origin: left center;
+	transition: opacity 0.16s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease;
+	/* Start all dots at the icon, then send them to their individual positions. */
+
+	&:nth-child(1) {
+		--dot-delay: 0.025s;
+		--dot-travel: calc(0 * var(--dot-step) - .75rem);
+		right: calc(0.25rem + 2 * var(--dot-step));
+	}
+
+	&:nth-child(2) {
+		--dot-delay: 0.05s;
+		--dot-travel: calc(-1 * var(--dot-step) - .75rem);
+		right: calc(0.25rem + 1 * var(--dot-step));
+	}
+
+	&:nth-child(3) {
+		--dot-delay: 0.075s;
+		--dot-travel: calc(-2 * var(--dot-step) - .75rem);
+		right: calc(0.25rem + 0 * var(--dot-step));
+	}
+}
+
+.app-nav-icon {
+	width: 2rem;
+	height: 2rem;
+	transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.app-nav-background {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.app-nav-link:hover .app-nav-dot,
+	.app-nav-link:focus .app-nav-dot {
+		animation: nav-dot-arrive 0.24s ease-out var(--dot-delay) both;
 	}
 }
 
 @keyframes nav-dot-arrive {
 	0% {
 		opacity: 0;
-		transform: translate(var(--dot-travel), .5rem) rotate(-24deg) scale(.5);
+		transform: translate(var(--dot-travel), 0.5rem) rotate(-24deg) scale(0.5);
 	}
 
 	20% {
@@ -314,11 +318,11 @@ $block: '.app-nav';
 	}
 
 	60% {
-		transform: translate(.125rem, -.625rem) rotate(12deg) scale(1.1);
+		transform: translate(0.125rem, -0.625rem) rotate(12deg) scale(1.1);
 	}
 
 	80% {
-		transform: translate(0, .0625rem) rotate(-6deg);
+		transform: translate(0, 0.0625rem) rotate(-6deg);
 	}
 
 	100% {
@@ -328,16 +332,15 @@ $block: '.app-nav';
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-	#{$block}__link,
-	#{$block}__label,
-	#{$block}__dot,
-	#{$block}__icon {
+	.app-nav-link,
+	.app-nav-label,
+	.app-nav-dot,
+	.app-nav-icon {
 		transition: none;
 	}
 
-	#{$block}__link:hover #{$block}__icon,
-	#{$block}__link:focus #{$block}__icon {
+	.app-nav-link:hover .app-nav-icon,
+	.app-nav-link:focus .app-nav-icon {
 		transform: none;
 	}
 }
